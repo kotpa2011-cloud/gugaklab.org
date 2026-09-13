@@ -1049,7 +1049,7 @@ body:has(.overview-layout) #main {
   }
 
   .overview-about .overview-section-header {
-    min-height: 154px;
+    min-height: 0;
   }
 
   .overview-about .overview-section-heading h1 {
@@ -1065,7 +1065,7 @@ body:has(.overview-layout) #main {
   }
 
   .overview-pace .overview-section-heading .is-body {
-    height: 57px;
+    height: auto;
     line-height: 1.5;
   }
 }
