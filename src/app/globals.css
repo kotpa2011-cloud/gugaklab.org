@@ -867,7 +867,7 @@ body:has(.overview-layout) #main {
 
 .overview-work-item {
   display: flex;
-  height: 272px;
+  height: auto;
   min-width: 0;
   flex-direction: column;
   align-items: start;
