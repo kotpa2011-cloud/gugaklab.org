@@ -1042,6 +1042,34 @@ body:has(.overview-layout) #main {
   line-height: 1;
 }
 
+@media (min-width: 1101px) {
+  .overview-section-heading,
+  .overview-pace .overview-section-heading {
+    gap: 12px;
+  }
+
+  .overview-about .overview-section-header {
+    min-height: 154px;
+  }
+
+  .overview-about .overview-section-heading h1 {
+    font-size: 42px;
+  }
+
+  .overview-how .overview-section-heading h2 {
+    font-weight: 700;
+  }
+
+  .overview-section-heading > p {
+    line-height: 1.5;
+  }
+
+  .overview-pace .overview-section-heading .is-body {
+    height: 57px;
+    line-height: 1.5;
+  }
+}
+
 /* ARCHIVE */
 .archive-page {
   min-height: calc(100svh - var(--header-height));
