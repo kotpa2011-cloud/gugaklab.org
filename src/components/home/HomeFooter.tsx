@@ -22,7 +22,14 @@ export default function HomeFooter({ variant = "overlay" }: HomeFooterProps) {
 
     const updatePosition = () => {
       animationFrame = 0;
-      const progress = Math.min(Math.max(window.scrollY / FOOTER_HEIGHT, 0), 1);
+      const availableScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        0,
+      );
+      const revealDistance = Math.min(FOOTER_HEIGHT, availableScroll);
+      const progress = revealDistance > 0
+        ? Math.min(Math.max(window.scrollY / revealDistance, 0), 1)
+        : 0;
       const translateY = reducedMotion.matches
         ? progress === 1
           ? 0
