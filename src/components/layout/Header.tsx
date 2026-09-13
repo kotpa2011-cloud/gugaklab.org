@@ -61,14 +61,21 @@ export default function Header() {
               ),
             )}
           </div>
-          <Image
+          <a
             className="desktop-foundation-logo"
-            src="/images/gukak/home-v2/header-foundation.svg"
-            alt="전통공연예술진흥재단"
-            width={214}
-            height={36}
-            priority
-          />
+            href="https://kotpa.org/ucms/main/indexmain.do"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="전통공연예술진흥재단 홈페이지 (새 창)"
+          >
+            <Image
+              src="/images/gukak/home-v2/header-foundation.svg"
+              alt=""
+              width={214}
+              height={36}
+              priority
+            />
+          </a>
         </nav>
       </div>
 
@@ -106,13 +113,20 @@ export default function Header() {
             />
           </Link>
         </div>
-        <Image
+        <a
           className="foundation-mark"
-          src="/images/gukak/home-v2/mobile-foundation.svg"
-          alt="전통공연예술진흥재단"
-          width={16}
-          height={25}
-        />
+          href="https://kotpa.org/ucms/main/indexmain.do"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="전통공연예술진흥재단 홈페이지 (새 창)"
+        >
+          <Image
+            src="/images/gukak/home-v2/mobile-foundation.svg"
+            alt=""
+            width={16}
+            height={25}
+          />
+        </a>
       </div>
 
       <nav
