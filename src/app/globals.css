@@ -1361,7 +1361,7 @@ body:has(.overview-layout) #main {
   }
 
   .mobile-rail.is-menu-open {
-    background: var(--black);
+    background: transparent;
   }
 
   .mobile-rail.is-menu-open .mobile-brand-wrap {
