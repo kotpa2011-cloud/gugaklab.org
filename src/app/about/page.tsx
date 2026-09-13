@@ -39,25 +39,34 @@ const sectionNav = [
   { href: "#pace-makers", label: "PACE MAKERS" },
 ] as const;
 
-const aboutParagraphs = [
-  "<국악길라잡이 : 비즈니스 랩>은 예술성을 지키면서도, 국악이 시장에서 지속 가능한 '상품'으로 살아남는 새로운 문법을 실험합니다. 관객의 선택은 단지 객석을 채우는 데 그치지 않습니다. 예술가가 다음 무대를 스스로 이어갈 수 있는 자생력을 만듭니다.",
-  "국악길라잡이는 창작자의 관점에 시장 친화적인 시선을 더합니다. 공연을 순수 작품에 머무르게 하지 않고, 관객이 기꺼이 시간과 비용을 지불할 가치가 있는 '매력적인 문화상품'으로 다시 바라봅니다. 우리는 시장을 예술의 반대편에 두지 않습니다. 시장은 예술이 소비자와 만나 지속 가능한 생명력을 얻는 가장 중요한 무대입니다.",
+const aboutParagraphGroups = [
+  [
+    "<국악길라잡이 : 비즈니스 랩>은 예술성을 지키면서도, 국악이 시장에서 지속 가능한 '상품'으로 살아남는 새로운 문법을 실험합니다.",
+    "관객의 선택은 단지 객석을 채우는 데 그치지 않습니다. 예술가가 다음 무대를 스스로 이어갈 수 있는 자생력을 만듭니다.",
+  ],
+  [
+    "국악길라잡이는 창작자의 관점에 시장 친화적인 시선을 더합니다. 공연을 순수 작품에 머무르게 하지 않고, 관객이 기꺼이 시간과 비용을 지불할 가치가 있는 '매력적인 문화상품'으로 다시 바라봅니다.",
+    "우리는 시장을 예술의 반대편에 두지 않습니다. 시장은 예술이 소비자와 만나 지속 가능한 생명력을 얻는 가장 중요한 무대입니다.",
+  ],
 ] as const;
 
 const workSteps = [
   {
     number: "1",
-    title: "MEET UP : 익숙한 창작의 틀에서 벗어납니다",
+    title: "MEET UP",
+    subtitle: "익숙한 창작의 틀에서 벗어납니다",
     body: "당연하게 여겨온 공급자 중심의 기획 방식을 돌아봅니다. 서로 다른 관점과 질문을 통해 생각의 경계를 넓히고, 관객 경험(CX)과 소통(Communication)이라는 새로운 시각을 더합니다.",
   },
   {
     number: "2",
-    title: "BOOTCAMP : 팔리는 공연의 핵심을 찾아, 진짜 '상품'으로 만듭니다.",
+    title: "BOOTCAMP",
+    subtitle: "팔리는 공연의 핵심을 찾아, 진짜 '상품'으로 만듭니다.",
     body: "막연히 큰 규모를 그리기보다 지금 당장 실행 가능한 최적의 스케일에 공연의 핵심 상품성을 정의합니다. 4인 1조 팀 프로젝트로 관객이 티켓을 구매할 명확한 이유를 구체화하고 쇼케이스 무대로 구현합니다.",
   },
   {
     number: "3",
-    title: "SHOW UP : 관객 앞에서 자생력을 검증합니다.",
+    title: "SHOW UP",
+    subtitle: "관객 앞에서 자생력을 검증합니다.",
     body: "완성된 공연을 실제 관객 앞에 선보입니다. 기획 의도와 시장 반응 사이의 간극을 데이터로 확인하며, 1회성 발표에 그치지 않고 지속해서 팔리는 '자생적인 국악 비즈니스 모델'을 증명합니다.",
   },
 ] as const;
@@ -114,8 +123,12 @@ export default function AboutPage() {
             level={1}
           />
           <div className="overview-about-copy">
-            {aboutParagraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {aboutParagraphGroups.map((group) => (
+              <div className="overview-about-copy-group" key={group[0]}>
+                {group.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             ))}
           </div>
         </section>
@@ -131,7 +144,10 @@ export default function AboutPage() {
               <li className="overview-work-item" key={step.number}>
                 <NumberDisc>{step.number}</NumberDisc>
                 <div className="overview-work-copy">
-                  <h3>{step.title}</h3>
+                  <h3>
+                    <span>{step.title}</span>
+                    <span>{step.subtitle}</span>
+                  </h3>
                   <p>{step.body}</p>
                 </div>
               </li>
@@ -142,17 +158,13 @@ export default function AboutPage() {
         <section id="pace-makers" className="overview-section overview-pace">
           <OverviewSectionHeader
             title="PACE MAKERS"
-            subtitle="국악길라잡이에는 정답을 알려주는 ‘일타 강사’대신 서로 다른 영역에서 자신의 길을 만들어온 세 명의 페이스메이커가 함께 합니다. 전통예술에서 익숙한 시선에 공연 기획, 예술교육, 마케팅과 커뮤니케이션의 관점을 더합니다."
+            subtitle="서로 다른 영역에서 자신의 길을 만들어온 세 명의 페이스메이커가 함께 합니다."
           />
 
           <ol className="overview-pacemaker-list">
             {pacemakers.map((person) => (
               <li className="overview-person" key={person.number}>
                 <div className="overview-person-visual">
-                  <p className="overview-person-focus">
-                    <NumberDisc>{person.number}</NumberDisc>
-                    <span>{person.focus}</span>
-                  </p>
                   <div className="overview-person-image">
                     <Image
                       className={person.imageClass}
@@ -164,6 +176,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="overview-person-copy">
+                  <p className="overview-person-focus">{person.focus}</p>
                   <h3>{person.name}</h3>
                   <p>{person.bio}</p>
                 </div>

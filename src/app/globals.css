@@ -559,8 +559,9 @@ body:has(.overview-layout) #main {
 
 .overview-layout {
   display: grid;
+  width: 100%;
   min-width: 0;
-  max-width: 1800px;
+  max-width: none;
   margin-inline: 0;
   grid-template-columns: 480px minmax(0, 1fr);
   background: #202020;
@@ -581,8 +582,8 @@ body:has(.overview-layout) #main {
   color: var(--black);
   background-color: var(--yellow);
   background-image: url("/images/gukak/overview-v2/pattern-pc.svg");
-  background-position: top left;
-  background-size: 480px 5660px;
+  background-position: 0 -5px;
+  background-size: 239px 2818.21px;
 }
 
 .overview-word-band {
@@ -614,7 +615,7 @@ body:has(.overview-layout) #main {
 .overview-section-nav {
   position: absolute;
   z-index: 1;
-  top: 390px;
+  top: 410px;
   left: 0;
   width: 100%;
 }
@@ -658,6 +659,15 @@ body:has(.overview-layout) #main {
 }
 
 @media (min-width: 1101px) {
+  .overview-section-nav {
+    border-top: 3px solid var(--white);
+    border-bottom: 3px solid var(--white);
+  }
+
+  .overview-section-nav a {
+    padding-block: 19.4px;
+  }
+
   .overview-section-nav a:not([aria-current="location"]):hover {
     color: var(--black);
     background: var(--yellow-ghost);
@@ -698,7 +708,7 @@ body:has(.overview-layout) #main {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 70px;
+  gap: 60px;
   scroll-margin-top: 30px;
 }
 
@@ -721,6 +731,26 @@ body:has(.overview-layout) #main {
   display: flex;
   min-width: 0;
   flex-direction: column;
+  gap: 15px;
+}
+
+.overview-about {
+  gap: 45px;
+}
+
+.overview-about .overview-section-header {
+  min-height: 143px;
+}
+
+.overview-about .overview-section-heading h1 {
+  font-size: 38px;
+}
+
+.overview-pace {
+  gap: 0;
+}
+
+.overview-pace .overview-section-heading {
   gap: 20px;
 }
 
@@ -757,31 +787,40 @@ body:has(.overview-layout) #main {
 .overview-about-copy {
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 36px;
   font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 45px;
 }
 
+.overview-about-copy-group p {
+  display: inline;
+}
+
+.overview-about-copy-group p + p::before {
+  content: " ";
+}
+
 .overview-work-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 80px;
 }
 
 .overview-work-item {
-  display: grid;
+  display: flex;
+  height: 209px;
   min-width: 0;
-  grid-template-columns: 32px minmax(0, 1fr);
+  flex-direction: column;
   align-items: start;
-  gap: 80px;
+  gap: 25px;
 }
 
 .overview-number-disc {
   display: inline-flex;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
@@ -789,27 +828,40 @@ body:has(.overview-layout) #main {
   color: var(--black);
   background: var(--white);
   font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
 }
 
 .overview-work-item .overview-number-disc {
-  margin-block: 6px;
+  margin-block: 0;
 }
 
 .overview-work-copy {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
 }
 
 .overview-work-copy h3 {
-  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.5;
+}
+
+.overview-work-copy h3 span {
+  display: flex;
+  height: 24px;
+  align-items: center;
+}
+
+.overview-how {
+  padding-bottom: 20px;
 }
 
 .overview-work-copy p {
@@ -831,34 +883,37 @@ body:has(.overview-layout) #main {
 .overview-pacemaker-list {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 0;
+}
+
+.overview-person:not(:last-child) {
+  margin-bottom: -18px;
 }
 
 .overview-person {
   display: grid;
   min-width: 0;
-  grid-template-columns: 308px minmax(0, 1fr);
+  --person-image-width: clamp(268px, calc(205px + 5.72vw), 308px);
+  grid-template-columns: var(--person-image-width) minmax(0, 1fr);
   align-items: start;
   gap: 120px;
   border-bottom: 3px solid var(--white);
 }
 
 .overview-person-visual {
-  display: flex;
-  width: 308px;
+  display: block;
+  width: var(--person-image-width);
   height: 292px;
-  flex-direction: column;
-  gap: 20px;
+  padding-top: 52px;
 }
 
 .overview-person-focus {
   display: flex;
-  height: 32px;
+  height: 24px;
   align-items: center;
-  gap: 20px;
   color: #d376ff;
   font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -866,6 +921,7 @@ body:has(.overview-layout) #main {
 
 .overview-person-image {
   position: relative;
+  left: 34px;
   width: 100%;
   height: 240px;
   overflow: hidden;
@@ -896,8 +952,8 @@ body:has(.overview-layout) #main {
 
 .overview-person-image .is-han {
   right: 15.91%;
-  bottom: -0.5px;
-  width: 68.51%;
+  bottom: 0;
+  height: 100%;
 }
 
 .overview-person-image .is-kwon {
@@ -910,15 +966,17 @@ body:has(.overview-layout) #main {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 20px;
-  padding-top: 6px;
+  gap: 21px;
+  height: 180px;
+  margin-top: 53px;
+  padding-block: 24px;
   font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .overview-person-copy h3 {
   color: var(--yellow);
-  font-size: inherit;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1;
 }
@@ -926,6 +984,11 @@ body:has(.overview-layout) #main {
 .overview-person-copy p {
   font-weight: 500;
   line-height: 1.5;
+}
+
+.overview-person-copy .overview-person-focus {
+  font-weight: 700;
+  line-height: 1;
 }
 
 /* ARCHIVE */
@@ -1161,13 +1224,7 @@ body:has(.overview-layout) #main {
   }
 
   .overview-person {
-    grid-template-columns: 268px minmax(0, 1fr);
     gap: 64px;
-  }
-
-  .overview-person-visual {
-    width: 268px;
-    height: 284px;
   }
 
   .overview-person-focus {
@@ -1466,34 +1523,53 @@ body:has(.overview-layout) #main {
     padding: 30px 20px;
   }
 
+  .overview-visual {
+    height: 399px;
+    margin-bottom: -29px;
+    background-position: -2px top;
+    background-size: 312px 539.81px;
+  }
+
+  .overview-section-nav {
+    top: 197px;
+  }
+
   .overview-section {
     gap: 40px;
   }
 
   .overview-section-header {
-    gap: 30px;
+    gap: 20px;
   }
 
   .overview-how .overview-section-header,
   .overview-pace .overview-section-header {
-    gap: 40px;
+    gap: 20px;
   }
 
   .overview-section-heading {
-    gap: 12px;
+    gap: 5px;
   }
 
   .overview-pace .overview-section-heading {
-    gap: 20px;
+    gap: 5px;
   }
 
   .overview-section-heading h1,
   .overview-section-heading h2 {
-    font-size: 24px;
+    font-size: 18px;
+  }
+
+  .overview-about .overview-section-heading h1 {
+    font-size: 18px;
+  }
+
+  .overview-how .overview-section-heading h2 {
+    font-size: 20px;
   }
 
   .overview-section-heading > p {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .overview-section-heading .is-purple {
@@ -1502,13 +1578,33 @@ body:has(.overview-layout) #main {
 
   .overview-section-heading .is-body {
     font-size: 16px;
-    line-height: 26px;
+    line-height: 1.5;
+  }
+
+  .overview-about {
+    gap: 25px;
+  }
+
+  .overview-about .overview-section-header {
+    min-height: 0;
   }
 
   .overview-about-copy {
-    gap: 26px;
-    font-size: 16px;
-    line-height: 26px;
+    gap: 22px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .overview-about-copy-group {
+    display: contents;
+  }
+
+  .overview-about-copy-group p {
+    display: block;
+  }
+
+  .overview-about-copy-group p + p::before {
+    content: none;
   }
 
   .overview-work-list {
@@ -1517,28 +1613,54 @@ body:has(.overview-layout) #main {
 
   .overview-work-item {
     display: flex;
+    height: auto;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+  }
+
+  .overview-work-item:nth-child(1) {
+    height: 176px;
+  }
+
+  .overview-work-item:nth-child(2) {
+    height: 210px;
+  }
+
+  .overview-work-item:nth-child(3) {
+    height: 183px;
   }
 
   .overview-number-disc {
-    width: 24px;
-    height: 24px;
-    font-size: 16px;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
   }
 
   .overview-work-copy {
-    gap: 12px;
+    gap: 10px;
   }
 
   .overview-work-copy h3 {
-    font-size: 20px;
+    gap: 0;
+    font-size: 18px;
     line-height: 1.5;
   }
 
+  .overview-work-copy h3 span {
+    height: auto;
+  }
+
+  .overview-how {
+    padding-bottom: 0;
+  }
+
+  .overview-work-item:nth-child(2) .overview-work-copy h3 span:first-child {
+    font-size: 20px;
+  }
+
   .overview-work-copy p {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 13px;
+    line-height: 1.6;
   }
 
   .overview-work-item:nth-child(2) .overview-work-copy h3 {
@@ -1546,39 +1668,52 @@ body:has(.overview-layout) #main {
   }
 
   .overview-pace {
-    gap: 32px;
+    gap: 140px;
   }
 
   .overview-pacemaker-list {
-    gap: 40px;
+    gap: 140px;
   }
 
   .overview-person {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: block;
+    margin-bottom: 0;
+    padding-top: 6px;
     padding-bottom: 20px;
   }
 
+  .overview-person:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .overview-person:nth-child(1),
+  .overview-person:nth-child(2) {
+    height: 141px;
+  }
+
+  .overview-person:nth-child(3) {
+    height: 161px;
+  }
+
   .overview-person-visual {
-    width: 100%;
-    height: 284px;
+    display: none;
   }
 
   .overview-person-focus {
-    height: 24px;
-    gap: 12px;
-    font-size: 20px;
+    height: auto;
+    font-size: 14px;
   }
 
   .overview-person-copy {
-    gap: 20px;
-    padding-top: 6px;
-    font-size: 16px;
+    gap: 10px;
+    height: auto;
+    margin-top: 0;
+    padding: 0;
+    font-size: 13px;
   }
 
   .overview-person-copy h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .overview-person-copy p {
