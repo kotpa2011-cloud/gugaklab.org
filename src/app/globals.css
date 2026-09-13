@@ -7,6 +7,7 @@
   --white: #fff;
   --header-height: 96px;
   --home-footer-height: 130px;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
   --page-gutter: clamp(24px, 3.1vw, 60px);
   --font-base:
     Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
@@ -1377,8 +1378,12 @@ body:has(.overview-layout) #main {
     font-size: 12px;
   }
 
+  .home-footer {
+    height: calc(var(--home-footer-height) + var(--safe-area-bottom));
+  }
+
   .home-footer-info {
-    bottom: 40px;
+    bottom: calc(40px + var(--safe-area-bottom));
     left: 20px;
     width: auto;
     gap: 8px;
@@ -1392,7 +1397,7 @@ body:has(.overview-layout) #main {
   .home-footer-copyright {
     right: auto;
     left: 20px;
-    bottom: 28px;
+    bottom: calc(28px + var(--safe-area-bottom));
     font-size: 8px;
     text-align: left;
   }
