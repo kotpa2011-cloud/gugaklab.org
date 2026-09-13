@@ -1312,23 +1312,40 @@ body:has(.overview-layout) #main {
     height: 100dvh;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
-    padding: 40px 16px;
+    gap: 10px;
+    padding: 18px 16px;
     background: var(--black);
   }
 
+  .mobile-rail-main {
+    display: flex;
+    width: 20px;
+    min-height: 0;
+    align-items: center;
+    flex: 1 0 0;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .menu-toggle {
+    position: relative;
     display: grid;
-    width: 52px;
-    height: 52px;
+    width: 20px;
+    height: 20px;
     flex: 0 0 auto;
     place-content: center;
-    margin: -16px -16px 0;
+    margin: 0;
     padding: 0;
     border: 0;
     color: var(--yellow);
     background: transparent;
     cursor: pointer;
+  }
+
+  .menu-toggle::before {
+    position: absolute;
+    inset: -16px;
+    content: "";
   }
 
   .menu-toggle img {
@@ -1344,7 +1361,7 @@ body:has(.overview-layout) #main {
   }
 
   .mobile-rail.is-menu-open {
-    background: transparent;
+    background: var(--black);
   }
 
   .mobile-rail.is-menu-open .mobile-brand-wrap {
@@ -1400,7 +1417,7 @@ body:has(.overview-layout) #main {
     align-items: center;
     justify-content: center;
     padding: 20px 12px;
-    border-bottom: 1px solid var(--white);
+    border-bottom: 1px solid #e8ebed;
     color: var(--yellow);
     font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
     font-size: 32px;

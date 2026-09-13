@@ -9,7 +9,11 @@ import { mainNav } from "@/lib/site";
 
 import styles from "./Header.module.css";
 
-const mobileNav = [...mainNav] as const;
+const mobileNav = [
+  ...mainNav,
+  { href: "/archive#meet-up", label: "MEET UP", disabled: true },
+  { href: "/archive#show-up", label: "SHOW UP", disabled: true },
+] as const;
 
 export default function Header() {
   const pathname = usePathname();
@@ -73,37 +77,39 @@ export default function Header() {
       </div>
 
       <div className={`mobile-rail${isOpen ? " is-menu-open" : ""}`}>
-        <button
-          type="button"
-          className="menu-toggle"
-          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          <Image
-            src={isOpen ? "/images/gukak/home-v2/close.svg" : "/images/gukak/home-v2/menu.svg"}
-            alt=""
-            width={20}
-            height={20}
-          />
-        </button>
+        <div className="mobile-rail-main">
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsOpen((open) => !open)}
+          >
+            <Image
+              src={isOpen ? "/images/gukak/home-v2/close.svg" : "/images/gukak/home-v2/menu.svg"}
+              alt=""
+              width={20}
+              height={20}
+            />
+          </button>
 
-        <Link
-          href="/"
-          className="mobile-brand-wrap"
-          aria-label="국악 길라잡이: 비즈니스 랩 홈"
-          aria-hidden={isOpen}
-          tabIndex={isOpen ? -1 : 0}
-        >
-          <Image
-            className="vertical-brand"
-            src="/images/gukak/home-v2/mobile-site-logo.svg"
-            alt=""
-            width={160}
-            height={14}
-          />
-        </Link>
+          <Link
+            href="/"
+            className="mobile-brand-wrap"
+            aria-label="국악 길라잡이: 비즈니스 랩 홈"
+            aria-hidden={isOpen}
+            tabIndex={isOpen ? -1 : 0}
+          >
+            <Image
+              className="vertical-brand"
+              src="/images/gukak/home-v2/mobile-site-logo.svg"
+              alt=""
+              width={160}
+              height={14}
+            />
+          </Link>
+        </div>
         <Image
           className="foundation-mark"
           src="/images/gukak/home-v2/mobile-foundation.svg"
