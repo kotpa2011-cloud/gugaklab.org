@@ -699,6 +699,8 @@ body:has(.overview-layout) #main {
 
   .overview-section-nav a {
     padding-block: 19.4px;
+    font-size: 28px;
+    font-weight: 700;
   }
 
   .overview-section-nav a:not([aria-current="location"]):hover {
@@ -725,6 +727,10 @@ body:has(.overview-layout) #main {
 
   .overview-content .overview-section {
     scroll-margin-top: 144px;
+  }
+
+  .overview-about .overview-section-heading h1 {
+    font-weight: 700;
   }
 }
 
@@ -768,7 +774,7 @@ body:has(.overview-layout) #main {
 }
 
 .overview-about {
-  gap: 45px;
+  gap: 60px;
 }
 
 .overview-about .overview-section-header {
@@ -780,7 +786,7 @@ body:has(.overview-layout) #main {
 }
 
 .overview-pace {
-  gap: 0;
+  gap: 60px;
 }
 
 .overview-pace .overview-section-heading {
@@ -817,10 +823,20 @@ body:has(.overview-layout) #main {
   line-height: 1.6;
 }
 
+.overview-pace .overview-section-heading .is-body {
+  display: flex;
+  height: 47px;
+  align-items: center;
+  color: var(--yellow-ghost);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
 .overview-about-copy {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 34px;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 28px;
   font-weight: 500;
@@ -843,7 +859,7 @@ body:has(.overview-layout) #main {
 
 .overview-work-item {
   display: flex;
-  height: 209px;
+  height: 237px;
   min-width: 0;
   flex-direction: column;
   align-items: start;
@@ -894,7 +910,7 @@ body:has(.overview-layout) #main {
 }
 
 .overview-how {
-  padding-bottom: 20px;
+  padding-bottom: 0;
 }
 
 .overview-work-copy p {
@@ -916,28 +932,23 @@ body:has(.overview-layout) #main {
 .overview-pacemaker-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 20px;
 }
 
 .overview-person:not(:last-child) {
-  margin-bottom: -18px;
+  margin-bottom: 0;
 }
 
 .overview-person {
-  display: grid;
+  display: block;
+  height: 196px;
   min-width: 0;
-  --person-image-width: clamp(268px, calc(205px + 5.72vw), 308px);
-  grid-template-columns: var(--person-image-width) minmax(0, 1fr);
-  align-items: start;
-  gap: 120px;
-  border-bottom: 3px solid var(--white);
+  padding-bottom: 32px;
+  border-bottom: 0;
 }
 
 .overview-person-visual {
-  display: block;
-  width: var(--person-image-width);
-  height: 292px;
-  padding-top: 52px;
+  display: none;
 }
 
 .overview-person-focus {
@@ -999,10 +1010,10 @@ body:has(.overview-layout) #main {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 21px;
-  height: 180px;
-  margin-top: 53px;
-  padding-block: 24px;
+  gap: 20px;
+  height: auto;
+  margin-top: 0;
+  padding: 0;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 24px;
 }
@@ -1561,14 +1572,14 @@ body:has(.overview-layout) #main {
   }
 
   .overview-visual {
-    height: 399px;
-    margin-bottom: -29px;
+    height: 381px;
+    margin-bottom: 0;
     background-position: -2px top;
     background-size: 312px 539.81px;
   }
 
   .overview-section-nav {
-    top: 197px;
+    top: 199px;
   }
 
   .overview-section {
@@ -1614,6 +1625,13 @@ body:has(.overview-layout) #main {
   }
 
   .overview-section-heading .is-body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .overview-pace .overview-section-heading .is-body {
+    display: block;
+    height: auto;
     font-size: 16px;
     line-height: 1.5;
   }
@@ -1667,6 +1685,13 @@ body:has(.overview-layout) #main {
     height: 183px;
   }
 
+  .overview-work-item:nth-child(2),
+  .overview-work-item:nth-child(3),
+  .overview-work-item:nth-child(2) .overview-work-copy,
+  .overview-work-item:nth-child(3) .overview-work-copy {
+    gap: 12px;
+  }
+
   .overview-number-disc {
     width: 18px;
     height: 18px;
@@ -1705,11 +1730,11 @@ body:has(.overview-layout) #main {
   }
 
   .overview-pace {
-    gap: 140px;
+    gap: 20px;
   }
 
   .overview-pacemaker-list {
-    gap: 140px;
+    gap: 20px;
   }
 
   .overview-person {
@@ -1726,10 +1751,11 @@ body:has(.overview-layout) #main {
   .overview-person:nth-child(1),
   .overview-person:nth-child(2) {
     height: 141px;
+    border-bottom: 3px solid var(--white);
   }
 
   .overview-person:nth-child(3) {
-    height: 161px;
+    height: 158px;
   }
 
   .overview-person-visual {
