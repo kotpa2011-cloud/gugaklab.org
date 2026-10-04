@@ -779,6 +779,8 @@ body:has(.overview-layout) #main {
   min-width: 0;
   flex-direction: column;
   gap: 15px;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .overview-about {
@@ -833,7 +835,7 @@ body:has(.overview-layout) #main {
 
 .overview-pace .overview-section-heading .is-body {
   display: flex;
-  height: 38px;
+  height: auto;
   align-items: center;
   color: var(--yellow-ghost);
   font-size: 38px;
@@ -843,12 +845,19 @@ body:has(.overview-layout) #main {
 
 .overview-about-copy {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 34px;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 45px;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+.overview-about-copy-group {
+  min-width: 0;
 }
 
 .overview-about-copy-group p {
@@ -861,6 +870,7 @@ body:has(.overview-layout) #main {
 
 .overview-work-list {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 80px;
 }
@@ -900,6 +910,8 @@ body:has(.overview-layout) #main {
   flex-direction: column;
   gap: 25px;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .overview-work-copy h3 {
@@ -913,7 +925,8 @@ body:has(.overview-layout) #main {
 
 .overview-work-copy h3 span {
   display: flex;
-  height: 54px;
+  min-height: 54px;
+  height: auto;
   align-items: center;
 }
 
@@ -939,6 +952,7 @@ body:has(.overview-layout) #main {
 
 .overview-pacemaker-list {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 20px;
 }
@@ -949,7 +963,8 @@ body:has(.overview-layout) #main {
 
 .overview-person {
   display: block;
-  height: 196px;
+  min-height: 196px;
+  height: auto;
   min-width: 0;
   padding-bottom: 32px;
   border-bottom: 0;
@@ -961,14 +976,15 @@ body:has(.overview-layout) #main {
 
 .overview-person-focus {
   display: flex;
-  height: 24px;
+  min-height: 24px;
+  height: auto;
   align-items: center;
   color: #d376ff;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 1;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .overview-person-image {
@@ -1024,6 +1040,8 @@ body:has(.overview-layout) #main {
   padding: 0;
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 24px;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
 }
 
 .overview-person-copy h3 {
@@ -1308,7 +1326,8 @@ body:has(.overview-layout) #main {
   }
 
   .overview-person-focus {
-    height: 24px;
+    min-height: 24px;
+    height: auto;
     gap: 12px;
     font-size: 20px;
   }
@@ -1734,15 +1753,15 @@ body:has(.overview-layout) #main {
   }
 
   .overview-work-item:nth-child(1) {
-    height: 176px;
+    min-height: 176px;
   }
 
   .overview-work-item:nth-child(2) {
-    height: 210px;
+    min-height: 210px;
   }
 
   .overview-work-item:nth-child(3) {
-    height: 183px;
+    min-height: 183px;
   }
 
   .overview-work-item:nth-child(2),
@@ -1769,6 +1788,7 @@ body:has(.overview-layout) #main {
   }
 
   .overview-work-copy h3 span {
+    min-height: 0;
     height: auto;
   }
 
@@ -1810,12 +1830,12 @@ body:has(.overview-layout) #main {
 
   .overview-person:nth-child(1),
   .overview-person:nth-child(2) {
-    height: 141px;
+    min-height: 141px;
     border-bottom: 3px solid var(--white);
   }
 
   .overview-person:nth-child(3) {
-    height: 158px;
+    min-height: 158px;
   }
 
   .overview-person-visual {
@@ -1823,6 +1843,7 @@ body:has(.overview-layout) #main {
   }
 
   .overview-person-focus {
+    min-height: 0;
     height: auto;
     font-size: 14px;
   }
