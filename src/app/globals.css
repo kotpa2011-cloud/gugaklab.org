@@ -30,6 +30,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../node_modules/pretendard/dist/web/static/woff2/Pretendard-ExtraBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../../node_modules/pretendard/dist/web/static/woff2/Pretendard-Black.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
 :root {
   --yellow: #ffe200;
   --yellow-deep: #ffd700;
@@ -44,7 +60,7 @@
   --font-base:
     "Pretendard", Arial, "Apple SD Gothic Neo", "Noto Sans KR",
     "Malgun Gothic", sans-serif;
-  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-display: var(--font-base);
 }
 
 * {
