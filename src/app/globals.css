@@ -1091,7 +1091,7 @@ body:has(.overview-layout) #main {
 .overview-work-copy h3 span:first-child,
 .overview-person-copy h3 {
   font-size: var(--overview-title-size);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -1099,7 +1099,7 @@ body:has(.overview-layout) #main {
 .overview-work-copy h3 span + span,
 .overview-person-copy .overview-person-focus {
   font-size: var(--overview-subtitle-size);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.3;
 }
 
