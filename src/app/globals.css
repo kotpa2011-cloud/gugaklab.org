@@ -735,7 +735,7 @@ body:has(.overview-layout) #main {
   color: var(--black);
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
   white-space: nowrap;
 }
