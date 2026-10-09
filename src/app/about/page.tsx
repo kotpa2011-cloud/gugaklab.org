@@ -33,21 +33,18 @@ export const metadata: Metadata = {
   },
 };
 
+// 임시 콘텐츠: 최종 원고가 준비되면 아래 따옴표 안의 문구만 수정하세요.
+// title은 본문 제목과 왼쪽 목차에 함께 반영됩니다.
+const aboutContent = {
+  title: "HUMAN SCALE CONCERT",
+  subtitle: "음악과 사람 사이, 새로운 공연의 가능성",
+  body: "HUMAN SCALE CONCERT는 음악과 관객이 만나는 새로운 방식을 탐색하는 프로젝트입니다. 익숙한 공연의 형식을 넘어 다양한 경험과 실험을 통해 음악이 만들어내는 연결의 가능성을 발견합니다.",
+} as const;
+
 const sectionNav = [
-  { href: "#about", label: "ABOUT" },
+  { href: "#about", label: aboutContent.title },
   { href: "#how-we-work", label: "HOW WE WORK" },
   { href: "#pace-makers", label: "PACE MAKERS" },
-] as const;
-
-const aboutParagraphGroups = [
-  [
-    "<국악길라잡이 : 비즈니스 랩>은 예술성을 지키면서도, 국악이 시장에서 지속 가능한 '상품'으로 살아남는 새로운 문법을 실험합니다.",
-    "관객의 선택은 단지 객석을 채우는 데 그치지 않습니다. 예술가가 다음 무대를 스스로 이어갈 수 있는 자생력을 만듭니다.",
-  ],
-  [
-    "국악길라잡이는 창작자의 관점에 시장 친화적인 시선을 더합니다. 공연을 순수 작품에 머무르게 하지 않고, 관객이 기꺼이 시간과 비용을 지불할 가치가 있는 '매력적인 문화상품'으로 다시 바라봅니다.",
-    "우리는 시장을 예술의 반대편에 두지 않습니다. 시장은 예술이 소비자와 만나 지속 가능한 생명력을 얻는 가장 중요한 무대입니다.",
-  ],
 ] as const;
 
 const workSteps = [
@@ -117,19 +114,15 @@ export default function AboutPage() {
       <div className="overview-content">
         <section id="about" className="overview-section overview-about">
           <OverviewSectionHeader
-            title="ABOUT"
-            subtitle="예술의 바깥, 선택의 무대"
+            title={aboutContent.title}
+            subtitle={aboutContent.subtitle}
             accent="yellow"
             level={1}
           />
           <div className="overview-about-copy">
-            {aboutParagraphGroups.map((group) => (
-              <div className="overview-about-copy-group" key={group[0]}>
-                {group.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            ))}
+            <div className="overview-about-copy-group">
+              <p>{aboutContent.body}</p>
+            </div>
           </div>
         </section>
 

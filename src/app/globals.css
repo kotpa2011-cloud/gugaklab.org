@@ -744,6 +744,17 @@ body:has(.overview-layout) #main {
   border-bottom: 3px solid var(--white);
 }
 
+.overview-section-nav a[href="#about"] {
+  height: auto;
+  min-height: 1em;
+  white-space: normal;
+}
+
+.overview-section-nav a[href="#about"] > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .overview-nav-arrow {
   position: relative;
   display: block;
@@ -764,6 +775,11 @@ body:has(.overview-layout) #main {
 }
 
 @media (min-width: 1101px) {
+  .overview-visual {
+    /* Keep all three navigation items visible with the two-line concert title. */
+    min-height: 660px;
+  }
+
   .overview-section-nav {
     border-top: 3px solid var(--white);
     border-bottom: 3px solid var(--white);
