@@ -1060,6 +1060,10 @@ body:has(.overview-layout) #main {
 }
 
 @media (min-width: 1101px) {
+  .overview-work-copy h3 {
+    gap: 8px;
+  }
+
   .overview-section-heading,
   .overview-pace .overview-section-heading {
     gap: 12px;
