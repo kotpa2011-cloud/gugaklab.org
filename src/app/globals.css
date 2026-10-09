@@ -294,6 +294,10 @@ body:has(.home-poster) #main {
   aspect-ratio: 1920 / 968;
 }
 
+.home-band-overflow {
+  display: none;
+}
+
 @media (min-width: 1101px) {
   body:has(.home-poster) #main {
     height: calc(100dvh - var(--header-height) + var(--home-footer-height));
@@ -312,7 +316,30 @@ body:has(.home-poster) #main {
     /* Fit the original canvas as one group; leave child motion transforms intact. */
     top: 50%;
     width: min(100%, calc(100cqh * 1920 / 968));
+    overflow: visible;
+    /* Clip vertically to the canvas, horizontally only at the viewport edges. */
+    clip-path: inset(0 calc((100% - 100vw) / 2));
     transform: translate(-50%, -50%);
+  }
+
+  .poster-background-pc::before {
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: 100vw;
+    background: url("/images/gukak/home-v2/pattern-pc.svg") center top / 100cqw auto repeat-x;
+    content: "";
+    transform: translateX(-50%);
+  }
+
+  .home-band-overflow {
+    display: contents;
+  }
+
+  .home-band-overflow-copy {
+    position: absolute;
+    top: 0;
+    width: var(--home-pc-cycle);
   }
 }
 

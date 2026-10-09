@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DesktopBandOverflow from "./DesktopBandOverflow";
 
 const graphics = {
   fan: {
@@ -175,6 +176,11 @@ function LoopingBand({ variant }: { variant: BandVariant }) {
           ) : (
             <DesktopBandCycle variant={variant as "pc-top" | "pc-bottom"} copy={copy} key={copy} />
           ),
+        )}
+        {!isMobile && (
+          <DesktopBandOverflow>
+            <DesktopBandCycle variant={variant as "pc-top" | "pc-bottom"} copy={2} />
+          </DesktopBandOverflow>
         )}
       </div>
     </div>
