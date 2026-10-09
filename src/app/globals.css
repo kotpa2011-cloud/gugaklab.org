@@ -294,6 +294,28 @@ body:has(.home-poster) #main {
   aspect-ratio: 1920 / 968;
 }
 
+@media (min-width: 1101px) {
+  body:has(.home-poster) #main {
+    height: calc(100dvh - var(--header-height) + var(--home-footer-height));
+  }
+
+  .home-poster {
+    height: calc(100dvh - var(--header-height));
+    min-height: 0;
+  }
+
+  .desktop-poster {
+    container-type: size;
+  }
+
+  .poster-background-pc {
+    /* Fit the original canvas as one group; leave child motion transforms intact. */
+    top: 50%;
+    width: min(100%, calc(100cqh * 1920 / 968));
+    transform: translate(-50%, -50%);
+  }
+}
+
 .poster-pattern {
   position: absolute;
   z-index: 0;
