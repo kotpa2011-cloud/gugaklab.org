@@ -728,14 +728,14 @@ body:has(.overview-layout) #main {
 .overview-section-nav a {
   display: flex;
   box-sizing: content-box;
-  height: 32px;
+  height: auto;
   align-items: center;
   gap: 20px;
-  padding: 20px 60px;
+  padding: 16px 28px;
   color: var(--black);
   font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   line-height: 1;
   white-space: nowrap;
 }
@@ -769,12 +769,6 @@ body:has(.overview-layout) #main {
     border-bottom: 3px solid var(--white);
   }
 
-  .overview-section-nav a {
-    padding-block: 19.4px;
-    font-size: 28px;
-    font-weight: 700;
-  }
-
   .overview-section-nav a:not([aria-current="location"]):hover {
     color: var(--black);
     background: var(--yellow-ghost);
@@ -799,10 +793,6 @@ body:has(.overview-layout) #main {
 
   .overview-content .overview-section {
     scroll-margin-top: 144px;
-  }
-
-  .overview-about .overview-section-heading h1 {
-    font-weight: 700;
   }
 }
 
@@ -856,31 +846,12 @@ body:has(.overview-layout) #main {
   min-height: 143px;
 }
 
-.overview-about .overview-section-heading h1 {
-  font-size: 38px;
-}
-
 .overview-pace {
   gap: 60px;
 }
 
 .overview-pace .overview-section-heading {
   gap: 15px;
-}
-
-.overview-section-heading h1,
-.overview-section-heading h2 {
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 42px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.overview-section-heading > p {
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .overview-section-heading .is-yellow {
@@ -893,9 +864,6 @@ body:has(.overview-layout) #main {
 
 .overview-section-heading .is-body {
   color: var(--white);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.6;
 }
 
 .overview-pace .overview-section-heading .is-body {
@@ -903,9 +871,6 @@ body:has(.overview-layout) #main {
   height: auto;
   align-items: center;
   color: var(--yellow-ghost);
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .overview-about-copy {
@@ -913,10 +878,6 @@ body:has(.overview-layout) #main {
   min-width: 0;
   flex-direction: column;
   gap: 34px;
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 45px;
   overflow-wrap: anywhere;
   word-break: keep-all;
 }
@@ -983,26 +944,17 @@ body:has(.overview-layout) #main {
   display: flex;
   flex-direction: column;
   gap: 0;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.5;
 }
 
 .overview-work-copy h3 span {
   display: flex;
-  min-height: 54px;
+  min-height: 0;
   height: auto;
   align-items: center;
 }
 
 .overview-how {
   padding-bottom: 0;
-}
-
-.overview-work-copy p {
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.6;
 }
 
 .overview-work-item:first-child .overview-work-copy p {
@@ -1045,10 +997,6 @@ body:has(.overview-layout) #main {
   height: auto;
   align-items: center;
   color: #d376ff;
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
   white-space: normal;
 }
 
@@ -1103,30 +1051,19 @@ body:has(.overview-layout) #main {
   height: auto;
   margin-top: 0;
   padding: 0;
-  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
-  font-size: 24px;
   overflow-wrap: anywhere;
   word-break: keep-all;
 }
 
 .overview-person-copy h3 {
   color: var(--yellow);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.overview-person-copy p {
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.overview-person-copy .overview-person-focus {
-  font-weight: 700;
-  line-height: 1;
 }
 
 @media (min-width: 1101px) {
+  .overview-work-copy h3 {
+    gap: 8px;
+  }
+
   .overview-section-heading,
   .overview-pace .overview-section-heading {
     gap: 12px;
@@ -1136,21 +1073,54 @@ body:has(.overview-layout) #main {
     min-height: 0;
   }
 
-  .overview-about .overview-section-heading h1 {
-    font-size: 42px;
-  }
-
-  .overview-how .overview-section-heading h2 {
-    font-weight: 700;
-  }
-
-  .overview-section-heading > p {
-    line-height: 1.5;
-  }
-
   .overview-pace .overview-section-heading .is-body {
     height: auto;
-    line-height: 1.5;
+  }
+}
+
+/* Figma Text styles: PC/Title, PC/SubTitle, PC/BodyText. */
+.overview-layout {
+  --overview-title-size: 28px;
+  --overview-subtitle-size: 28px;
+  --overview-body-size: 19px;
+}
+
+.overview-content {
+  font-family: var(--font-base);
+  letter-spacing: 0;
+}
+
+.overview-section-heading h1,
+.overview-section-heading h2,
+.overview-work-copy h3 span:first-child,
+.overview-person-copy h3 {
+  font-size: var(--overview-title-size);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.overview-section-heading > p,
+.overview-work-copy h3 span + span,
+.overview-person-copy .overview-person-focus {
+  font-size: var(--overview-subtitle-size);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.overview-about-copy,
+.overview-work-copy p,
+.overview-person-copy > p:not(.overview-person-focus) {
+  font-size: var(--overview-body-size);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  /* Figma Text styles: MO/Title, MO/SubTitle, MO/BodyText. */
+  .overview-layout {
+    --overview-title-size: 14px;
+    --overview-subtitle-size: 14px;
+    --overview-body-size: 13px;
   }
 }
 
@@ -1362,10 +1332,9 @@ body:has(.overview-layout) #main {
   }
 
   .overview-section-nav a {
-    height: 20px;
-    gap: 20px;
-    padding: 16px 32px;
-    font-size: 20px;
+    gap: 12px;
+    padding: 16px 20px;
+    font-size: 12px;
   }
 
   .overview-section-nav a:not(:last-child) {
@@ -1394,7 +1363,6 @@ body:has(.overview-layout) #main {
     min-height: 24px;
     height: auto;
     gap: 12px;
-    font-size: 20px;
   }
 
   .overview-person-focus .overview-number-disc {
@@ -1747,37 +1715,9 @@ body:has(.overview-layout) #main {
     gap: 5px;
   }
 
-  .overview-section-heading h1,
-  .overview-section-heading h2 {
-    font-size: 18px;
-  }
-
-  .overview-about .overview-section-heading h1 {
-    font-size: 18px;
-  }
-
-  .overview-how .overview-section-heading h2 {
-    font-size: 20px;
-  }
-
-  .overview-section-heading > p {
-    font-size: 16px;
-  }
-
-  .overview-section-heading .is-purple {
-    line-height: 1.5;
-  }
-
-  .overview-section-heading .is-body {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
   .overview-pace .overview-section-heading .is-body {
     display: block;
     height: auto;
-    font-size: 16px;
-    line-height: 1.5;
   }
 
   .overview-about {
@@ -1790,8 +1730,6 @@ body:has(.overview-layout) #main {
 
   .overview-about-copy {
     gap: 22px;
-    font-size: 13px;
-    line-height: 1.6;
   }
 
   .overview-about-copy-group {
@@ -1848,8 +1786,6 @@ body:has(.overview-layout) #main {
 
   .overview-work-copy h3 {
     gap: 0;
-    font-size: 18px;
-    line-height: 1.5;
   }
 
   .overview-work-copy h3 span {
@@ -1859,15 +1795,6 @@ body:has(.overview-layout) #main {
 
   .overview-how {
     padding-bottom: 0;
-  }
-
-  .overview-work-item:nth-child(2) .overview-work-copy h3 span:first-child {
-    font-size: 20px;
-  }
-
-  .overview-work-copy p {
-    font-size: 13px;
-    line-height: 1.6;
   }
 
   .overview-work-item:nth-child(2) .overview-work-copy h3 {
@@ -1910,7 +1837,6 @@ body:has(.overview-layout) #main {
   .overview-person-focus {
     min-height: 0;
     height: auto;
-    font-size: 14px;
   }
 
   .overview-person-copy {
@@ -1918,15 +1844,6 @@ body:has(.overview-layout) #main {
     height: auto;
     margin-top: 0;
     padding: 0;
-    font-size: 13px;
-  }
-
-  .overview-person-copy h3 {
-    font-size: 18px;
-  }
-
-  .overview-person-copy p {
-    line-height: 1.5;
   }
 
   .archive-intro {
@@ -1988,7 +1905,6 @@ body:has(.overview-layout) #main {
 @media (max-width: 340px) {
   .overview-person-focus {
     gap: 8px;
-    font-size: 17px;
   }
 
   .overview-person-focus .overview-number-disc {
