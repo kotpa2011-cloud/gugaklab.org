@@ -54,7 +54,7 @@ export default function Header() {
                   className={styles.desktopNavButton}
                   key={item.href}
                   href={item.href}
-                  aria-current={pathname === item.href ? "page" : undefined}
+                  aria-current={pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
