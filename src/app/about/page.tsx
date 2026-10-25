@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import styles from "./Overview.module.css";
 
 import NumberDisc from "@/components/overview/NumberDisc";
 import OverviewSectionHeader from "@/components/overview/OverviewSectionHeader";
@@ -35,6 +35,7 @@ export const metadata: Metadata = {
 
 const sectionNav = [
   { href: "#about", label: "ABOUT" },
+  { href: "#human-scale-concert", label: "HUMAN SCALE CONCERT" },
   { href: "#how-we-work", label: "HOW WE WORK" },
   { href: "#pace-makers", label: "PACE MAKERS" },
 ] as const;
@@ -55,62 +56,58 @@ const workSteps = [
     number: "1",
     title: "MEET UP",
     subtitle: "익숙한 창작의 틀에서 벗어납니다",
-    body: "당연하게 여겨온 공급자 중심의 기획 방식을 돌아봅니다. 서로 다른 관점과 질문을 통해 생각의 경계를 넓히고, 관객 경험(CX)과 소통(Communication)이라는 새로운 시각을 더합니다.",
+    body: ["당연하게 여겨온 공급자 중심의 기획 방식을 돌아봅니다.", "서로 다른 관점과 질문을 통해 생각의 경계를 넓히고, 관객 경험(CX)과 소통(Communication)이라는 새로운 시각을 더합니다."],
   },
   {
     number: "2",
-    title: "BOOTCAMP",
+    title: "BOOT CAMP",
     subtitle: "팔리는 공연의 핵심을 찾아, 진짜 '상품'으로 만듭니다.",
-    body: "막연히 큰 규모를 그리기보다 지금 당장 실행 가능한 최적의 스케일에 공연의 핵심 상품성을 정의합니다. 4인 1조 팀 프로젝트로 관객이 티켓을 구매할 명확한 이유를 구체화하고 쇼케이스 무대로 구현합니다.",
+    body: ["막연히 큰 규모를 그리기보다 지금 당장 실행 가능한 최적의 스케일에 공연의 핵심 상품성을 정의합니다.", "4인 1조 팀 프로젝트로 관객이 티켓을 구매할 명확한 이유를 구체화하고 쇼케이스 무대로 구현합니다."],
   },
   {
     number: "3",
     title: "SHOW UP",
     subtitle: "관객 앞에서 자생력을 검증합니다.",
-    body: "완성된 공연을 실제 관객 앞에 선보입니다. 기획 의도와 시장 반응 사이의 간극을 데이터로 확인하며, 1회성 발표에 그치지 않고 지속해서 팔리는 '자생적인 국악 비즈니스 모델'을 증명합니다.",
+    body: ["완성된 공연을 실제 관객 앞에 선보입니다. 기획 의도와 시장 반응 사이의 간극을 데이터로 확인하며,", "1회성 발표에 그치지 않고 지속해서 팔리는 '자생적인 국악 비즈니스 모델'을 증명합니다."],
   },
 ] as const;
 
-const pacemakers = [
+// OVERVIEW 콘텐츠: 이름, 전문 분야, 소개 문구를 이곳에서 수정합니다.
+const humanScaleConcert = {
+  title: "오늘의 박수가 다음 무대로 이어지도록",
+  subtitle: "비즈니스 모델 ‘휴먼 스케일 콘서트’",
+  body: "좋은 공연이 계속되려면 수익이 이어지는 구조가 필요합니다. 국악 본연의 자연 음향과 관객과 나누는 친근한 호흡은 살리고, 기획∙제작의 부담은 가볍게. 관객이 찾고, 창작자가 꾸준히 선보일 수 있는 비즈니스 모델을 실험하며 국악 공연의 다음을 모색합니다.",
+};
+
+const pacemakerGroups = [
   {
-    number: "1",
-    focus: "기획과 제작의 시선",
-    name: "손혜리",
-    image: "/images/gukak/overview-v2/pacemaker-son.png",
-    imageWidth: 333,
-    imageHeight: 500,
-    imageClass: "is-son",
-    bio: "여우락 페스티벌 7대 제작총감독으로, 전통공연에 서로 다른 장르와 감각을 연결해온 기획자. 익숙한 공연을 새롭게 보고, 무대의 가능성을 확장합니다.",
+    title: "MEET UP",
+    people: [
+      { name: "손혜리", focus: "공연 기획", bio: ["여우락 페스티벌 제작 총감독", "전 경기아트센터 사장"] },
+      { name: "한지연", focus: "경험 설계", bio: ["현 서울문화재단 예술문화본부장", "LCI TA 교육시스템 국내 최초 도입"] },
+      { name: "권희균", focus: "마케팅 커뮤니케이션", bio: ["프리미엄 마케팅 전문가", "까르띠에 · 제네시스 · BMW 등", "브랜드 마케팅"] },
+    ],
   },
   {
-    number: "2",
-    focus: "교육과 창작의 시선",
-    name: "한지연",
-    image: "/images/gukak/overview-v2/pacemaker-han.png",
-    imageWidth: 308,
-    imageHeight: 333,
-    imageClass: "is-han",
-    bio: "링컨센터예술교육연구소(LCI)의 TA 교육시스템을 국내 최초로 도입한 예술교육 전문가. 익숙한 답에서 벗어나, 스스로 질문하고 발견하는 과정을 만듭니다.",
-  },
-  {
-    number: "3",
-    focus: "시장과 커뮤니케이션의 시선",
-    name: "권희균",
-    image: "/images/gukak/overview-v2/pacemaker-kwon.png",
-    imageWidth: 750,
-    imageHeight: 1000,
-    imageClass: "is-kwon",
-    bio: "보테가 베네타, BMW MINI 등 패션·뷰티·라이프스타일 시장을 넘나든 마케팅·커뮤니케이션 전문가. 가치가 사람의 관심을 얻고, 실제 선택으로 이어지는 방식을 살핍니다.",
+    title: "BOOT CAMP",
+    people: [
+      { name: "임선경", focus: "기획 · 연출", bio: ["음악극 ‘정조와 햄릿’,", "오페라 ‘이상의 날개', ‘논개' 등 연출"] },
+      { name: "김영교", focus: "음향", bio: ["국민대학교 종합예술대학원", "디지털 음향 전공 겸임교수"] },
+      { name: "김지은", focus: "기획 · 연출", bio: ["뮤지컬 <앨리스 스튜디오> 작, 연출", "<여기에는 메데이아가 없습니다>", "구성, 연출"] },
+      { name: "최은지", focus: "도슨트", bio: ["해금연주자", "국가무형유산 종묘제례악 이수자", "휴먼스케일 옹기콘서트 <판소리>편 도슨트"] },
+      { name: "장윤희", focus: "마케팅 커뮤니케이션", bio: ["전통 문화예술 연구가", "한국문화 콘텐츠랩 열두달(주) 대표", "‘모두의 풍류' 브랜드 마케팅"] },
+    ],
   },
 ] as const;
 
 export default function AboutPage() {
   return (
-    <article className="overview-layout">
+    <article className={`overview-layout ${styles.layout}`}>
       <div className="overview-sidebar-column">
         <aside className="overview-visual">
           <OverviewWordBand />
-          <OverviewSectionNav items={sectionNav} />
+          <p className={styles.mobileTitle}>OVERVIEW</p>
+          <OverviewSectionNav items={sectionNav} compact />
         </aside>
       </div>
 
@@ -133,11 +130,16 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section id="human-scale-concert" className={`overview-section ${styles.concert}`}>
+          <OverviewSectionHeader title={humanScaleConcert.title} subtitle={humanScaleConcert.subtitle} accent="purple" />
+          <p className={styles.concertBody}>{humanScaleConcert.body}</p>
+        </section>
+
         <section id="how-we-work" className="overview-section overview-how">
           <OverviewSectionHeader
             title="HOW WE WORK"
             subtitle="관점을 바꾸고, 상품으로 짓고, 관객 앞에 섭니다."
-            accent="purple"
+            accent="yellow"
           />
           <ol className="overview-work-list">
             {workSteps.map((step) => (
@@ -148,7 +150,9 @@ export default function AboutPage() {
                     <span>{step.title}</span>
                     <span>{step.subtitle}</span>
                   </h3>
-                  <p>{step.body}</p>
+                  <p>{step.body.map((sentence, index) => (
+                    <span className={styles.workSentence} key={sentence}>{index > 0 && " "}{sentence}</span>
+                  ))}</p>
                 </div>
               </li>
             ))}
@@ -158,31 +162,29 @@ export default function AboutPage() {
         <section id="pace-makers" className="overview-section overview-pace">
           <OverviewSectionHeader
             title="PACE MAKERS"
-            subtitle="서로 다른 영역에서 자신의 길을 만들어온 세 명의 페이스메이커가 함께 합니다."
+            subtitle="서로 다른 영역에서 자신의 길을 만들어온 페이스메이커(전문가)가 함께 합니다."
           />
 
-          <ol className="overview-pacemaker-list">
-            {pacemakers.map((person) => (
-              <li className="overview-person" key={person.number}>
-                <div className="overview-person-visual">
-                  <div className="overview-person-image">
-                    <Image
-                      className={person.imageClass}
-                      src={person.image}
-                      alt={`${person.name} 페이스메이커`}
-                      width={person.imageWidth}
-                      height={person.imageHeight}
-                    />
-                  </div>
-                </div>
-                <div className="overview-person-copy">
-                  <p className="overview-person-focus">{person.focus}</p>
-                  <h3>{person.name}</h3>
-                  <p>{person.bio}</p>
-                </div>
-              </li>
+          <div className={styles.expertGroups}>
+            {pacemakerGroups.map((group) => (
+              <section className={styles.expertGroup} key={group.title}>
+                <h3 className={styles.groupTitle}>{`<${group.title}>`}</h3>
+                <ul className={styles.expertGrid}>
+                  {group.people.map((person) => (
+                    <li className={styles.expert} key={person.name}>
+                      <div className={styles.expertHeading}>
+                        <h4>{person.name}</h4>
+                        <p>{person.focus}</p>
+                      </div>
+                      <div className={styles.expertBio}>
+                        {person.bio.map((line) => <p key={line}>{line}</p>)}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </ol>
+          </div>
         </section>
       </div>
     </article>

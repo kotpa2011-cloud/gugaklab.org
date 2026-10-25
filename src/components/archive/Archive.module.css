@@ -89,7 +89,7 @@
   flex-direction: column;
   align-items: stretch;
   gap: 60px;
-  padding: 80px clamp(40px, 5.20833vw, 100px);
+  padding: 80px 100px;
 }
 
 .indexHeading {
@@ -108,7 +108,7 @@
 
 .programHeading {
   min-width: 0;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -204,8 +204,8 @@
 .detailSidebarHeading {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-bottom: 70px;
+  gap: 20px;
+  margin-bottom: 46px;
 }
 
 .backLink {
@@ -243,10 +243,10 @@
 }
 
 .detailSidebar .programPeriod {
-  margin-top: 16px;
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.6;
+  margin-top: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .sidebarList {
@@ -258,6 +258,8 @@
 }
 
 .sidebarList .entry {
+  font-size: 19px;
+  line-height: 1.3;
   padding: 12px 40px;
   color: var(--black);
 }
@@ -274,7 +276,7 @@
 }
 
 .sidebarList .entry[aria-current="page"] {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .sidebarList .entry[aria-current="page"] .entryArrow {
@@ -305,7 +307,7 @@
 
 .articleHeading h1 {
   color: var(--yellow);
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -313,10 +315,10 @@
 .dateLocation {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.6;
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .articleSubtitle {
@@ -329,7 +331,7 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 60px;
+  gap: 100px;
 }
 
 .bodySection {
@@ -340,8 +342,9 @@
 }
 
 .bodySection h2,
+.sectionHeading > p,
 .sectionCopy h3 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -382,7 +385,7 @@
   flex: 1 1 0;
   flex-direction: column;
   gap: 1.6em;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
 }
@@ -392,7 +395,7 @@
   width: 34px;
   height: 2px;
   flex: 0 0 auto;
-  margin-bottom: calc(26px - 1.6em);
+  margin-bottom: calc(16px - 1.6em);
   background: #bebfc0;
   content: "";
 }
@@ -443,6 +446,30 @@
 
 .mobileRelated {
   display: none;
+}
+
+/* 1920px and 1440px desktop frames keep headings fixed and adapt the reading columns. */
+.programPeriod { font-size: 28px; }
+.sectionHeading { display: flex; flex-direction: column; gap: 8px; }
+
+@media (min-width: 1101px) {
+  .detail {
+    grid-template-columns: clamp(360px, calc(10.833333vw + 272px), 480px) minmax(0, 1fr);
+    --archive-copy-width: clamp(310px, calc(22.916667vw - 20px), 420px);
+    --archive-row-gap: clamp(40px, calc(4.166667vw - 20px), 60px);
+    --archive-image-width: clamp(460px, calc(62.5vw - 440px), 760px);
+  }
+  .detail .content { gap: 40px; }
+  .sectionRow { gap: var(--archive-row-gap); }
+  .sectionCopy { max-width: var(--archive-copy-width); flex: 0 1 var(--archive-copy-width); font-size: clamp(15px, calc(0.625vw + 6px), 18px); }
+  .figure { max-width: var(--archive-image-width); }
+  .textOnly .sectionCopy { flex: 1; max-width: none; }
+  .index .badge[data-repeated] { visibility: hidden; }
+  .index .entry { min-height: 87px; }
+}
+
+@media (min-width: 1101px) and (max-width: 1280px) {
+  .content { padding-inline: 40px; }
 }
 
 @media (max-width: 1100px) {
@@ -557,6 +584,10 @@
     font-size: 8px;
   }
 
+  .sidebarList .entry {
+    font-size: 12px;
+  }
+
   .entryArrow {
     display: none;
   }
@@ -629,11 +660,11 @@
 @media (max-width: 700px) {
   .detail .content {
     gap: 18px;
-    padding: 40px 20px;
+    padding: 30px 20px;
   }
 
   .articleHeading {
-    gap: 8px;
+    gap: 10px;
   }
 
   .articleHeading > .rule {
@@ -644,21 +675,18 @@
   }
 
   .articleBadge {
+    display: inline-flex;
+    width: 42px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
     padding: 0;
-    border-radius: 0;
-    background: transparent;
-    color: #d376ff;
-    font-size: 14px;
-    font-weight: 800;
+    border-radius: 999px;
+    color: var(--magenta);
+    background: var(--white);
+    font-size: 8px;
+    font-weight: 700;
     line-height: 1;
-  }
-
-  .articleBadge::before {
-    content: "[";
-  }
-
-  .articleBadge::after {
-    content: "]";
   }
 
   .articleHeading h1 {
@@ -675,6 +703,7 @@
 
   .articleSubtitle,
   .bodySection h2,
+  .sectionHeading > p,
   .sectionCopy h3 {
     font-size: 14px;
     font-weight: 800;
@@ -694,6 +723,6 @@
   }
 
   .mobileRelated {
-    margin: 22px -20px -40px;
+    margin: 22px -20px -30px;
   }
 }

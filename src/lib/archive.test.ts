@@ -114,3 +114,13 @@ test("repeated headings, paragraphs and images retain source order, captions and
   assert.equal(safeArchiveLink("javascript:alert(1)"), undefined);
   assert.equal(safeArchiveLink("https://example.com"), "https://example.com");
 });
+
+test("a section subtitle stays above its image and copy without creating an empty section", () => {
+  const sections = getArchiveSections("## 소리 취하다\n\n### 전통주와 어우러지는 소리\n\n![사진](/images/archive/placeholder.svg)\n\n소개 문단\n\n![다음 사진](/images/archive/placeholder.svg)\n\n다음 문단");
+  assert.equal(sections.length, 2);
+  assert.equal(sections[0].heading?.text, "소리 취하다");
+  assert.equal(sections[0].subheading?.text, "전통주와 어우러지는 소리");
+  assert.ok(sections[0].image);
+  assert.equal(sections[0].blocks.length, 1);
+  assert.equal(sections[1].subheading, undefined);
+});

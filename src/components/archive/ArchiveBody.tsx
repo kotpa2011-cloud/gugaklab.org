@@ -65,7 +65,12 @@ export default function ArchiveBody({ markdown }: { markdown: string }) {
     <div className={styles.body}>
       {getArchiveSections(markdown).map((section, index) => (
         <section className={styles.bodySection} key={index}>
-          {section.heading && <h2><Inline tokens={section.heading.tokens} /></h2>}
+          {section.heading && (
+            <div className={styles.sectionHeading}>
+              <h2><Inline tokens={section.heading.tokens} /></h2>
+              {section.subheading && <p><Inline tokens={section.subheading.tokens} /></p>}
+            </div>
+          )}
           <div className={`${styles.sectionRow}${section.image ? "" : ` ${styles.textOnly}`}`}>
             {section.image && (
               <figure className={styles.figure}>

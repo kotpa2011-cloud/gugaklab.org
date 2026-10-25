@@ -2,6 +2,7 @@ import { Lexer, type Token, type Tokens } from "marked";
 
 export interface ArchiveSection {
   heading?: Tokens.Heading;
+  subheading?: Tokens.Heading;
   image?: Tokens.Image;
   blocks: Token[];
 }
@@ -19,6 +20,8 @@ export function getArchiveSections(markdown: string): ArchiveSection[] {
     if (token.type === "heading" && (token as Tokens.Heading).depth <= 2) {
       flush();
       current.heading = token as Tokens.Heading;
+    } else if (token.type === "heading" && (token as Tokens.Heading).depth === 3 && current.heading && !current.subheading && !current.image && !current.blocks.length) {
+      current.subheading = token as Tokens.Heading;
     } else if (token.type === "paragraph" && token.tokens?.some((child: Token) => child.type === "image")) {
       let inline: Token[] = [];
       const addParagraph = () => {

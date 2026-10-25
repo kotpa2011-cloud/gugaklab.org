@@ -14,14 +14,14 @@ export default function ArchiveEntryList({
 }) {
   return (
     <ul className={`${styles.entryList}${sidebar ? ` ${styles.sidebarList}` : ""}`}>
-      {entries.map((entry) => (
+      {entries.map((entry, index) => (
         <li key={entry.id}>
           <Link
             className={styles.entry}
             href={archiveEntryHref(entry)}
             aria-current={entry.slug === activeSlug ? "page" : undefined}
           >
-            <span className={styles.badge} data-intro={entry.badge.toUpperCase() === "INTRO" || undefined}>
+            <span className={styles.badge} data-repeated={!sidebar && entries[index - 1]?.badge === entry.badge || undefined} data-intro={entry.badge.toUpperCase() === "INTRO" || undefined}>
               {entry.badge}
             </span>
             <span className={styles.entryTitle}>{entry.listTitle}</span>

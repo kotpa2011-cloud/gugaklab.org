@@ -1,4 +1,5 @@
 ---
+published: false
 id: "meetup-007"
 slug: "day-3-notes"
 program: "meetup"

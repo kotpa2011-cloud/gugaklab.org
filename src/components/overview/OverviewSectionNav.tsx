@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 
 type OverviewSectionNavProps = {
+  compact?: boolean;
   items: ReadonlyArray<{ href: string; label: string }>;
 };
 
@@ -21,7 +22,7 @@ const ACTIVATION_LINE = 280;
 const ACTIVATION_HYSTERESIS = 28;
 const LOCK_TIMEOUT = 1800;
 
-export default function OverviewSectionNav({ items }: OverviewSectionNavProps) {
+export default function OverviewSectionNav({ items, compact = false }: OverviewSectionNavProps) {
   const sectionIds = useMemo(() => items.map((item) => item.href.replace(/^#/, "")), [items]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -214,6 +215,7 @@ export default function OverviewSectionNav({ items }: OverviewSectionNavProps) {
             key={item.href}
           >
             <span className="overview-nav-arrow" aria-hidden="true">
+              {compact && <Image className="is-compact" src="/images/gukak/overview-v2/nav-arrow-compact.svg" alt="" width={23} height={21} />}
               <Image
                 className="is-default"
                 src="/images/gukak/overview-v2/nav-arrow.svg"
