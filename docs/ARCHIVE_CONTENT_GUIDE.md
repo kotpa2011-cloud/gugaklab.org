@@ -258,3 +258,25 @@ npm run build
 | 모바일 상세 DAY | 보라색 대괄호 텍스트 | 흰색 pill 안 보라색 8px 태그 |
 
 OVERVIEW 실제 본문 레이어는 두 PC 시안 모두 19px이므로 유지했습니다. ARCHIVE의 18px/15px 규칙과 구분됩니다. 모바일 상세 시안은 일부 원고가 PC와 달라 PC 원고를 공통 데이터로 적용했고, 모바일 상세 하단의 기존 다른 글 이동 기능과 BOOT CAMP 비활성 상태는 유지했습니다. 사진은 시안의 실사진 대신 회색 기본 이미지로 반영했습니다.
+
+## 13. 실제 원고·사진 반영 (2026-10-27)
+
+제공된 원고 6편을 기존 게시글에 반영했습니다. 기존 링크가 유지되도록 파일명과 `slug`는 그대로 사용합니다.
+
+| 제공된 원고 | 사이트에서 수정할 파일 (`content/archive/`) |
+|---|---|
+| 01-new-perspective.md | 01-new-perspective.md |
+| 02-thinking-switch.md | 02-day-1-record.md |
+| 03-audience-perspective.md | 03-audience-perspective.md |
+| 04-relationship-switch.md | 04-day-2-record.md |
+| 05-premium-gugak-proposals.md | 05-performance-business.md |
+| 06-beyond-finish-line.md | 06-day-3-record.md |
+
+사진 40장은 `public/images/archive/`에 원래 영문 파일명으로 저장했습니다. 원고의 이미지 경로에는 `.jpg` 확장자까지 작성합니다. 작품명에 사용된 `&lt;`, `&gt;`는 화면에 기호로 표시되도록 Markdown의 `\<작품명>` 형태로 정리했습니다.
+
+다음 두 사진은 제공 폴더에 없어 회색 기본 이미지로 표시됩니다. 아래 파일을 추가하고 다시 배포하면 기존 원고 경로에 자동으로 연결됩니다.
+
+- `public/images/archive/new-perspective-08.jpg`
+- `public/images/archive/beyond-finish-line-06.jpg`
+
+원고의 인명과 문구는 제공된 내용대로 반영했습니다. 교정이 필요하면 위 표의 Markdown 파일에서 수정해 주세요.
