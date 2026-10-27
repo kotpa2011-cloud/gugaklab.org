@@ -274,7 +274,7 @@ OVERVIEW 실제 본문 레이어는 두 PC 시안 모두 19px이므로 유지했
 
 사진 40장은 `public/images/archive/`에 원래 영문 파일명으로 저장했습니다. 원고의 이미지 경로에는 `.jpg` 확장자까지 작성합니다. 작품명에 사용된 `&lt;`, `&gt;`는 화면에 기호로 표시되도록 Markdown의 `\<작품명>` 형태로 정리했습니다.
 
-다음 두 사진은 제공 폴더에 없어 회색 기본 이미지로 표시됩니다. 아래 파일을 추가하고 다시 배포하면 기존 원고 경로에 자동으로 연결됩니다.
+아래 두 사진을 포함한 전체 42장을 새로 제공된 사진 폴더 기준으로 반영했습니다. 모든 게시글의 사진 경로가 실제 파일에 연결됩니다.
 
 - `public/images/archive/new-perspective-08.jpg`
 - `public/images/archive/beyond-finish-line-06.jpg`
