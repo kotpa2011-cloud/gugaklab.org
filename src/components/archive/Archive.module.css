@@ -368,7 +368,6 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background: #d9d9d9;
 }
 
 .figure figcaption {
