@@ -1,0 +1,18 @@
+[
+  {
+    "id": "meetup",
+    "label": "MEET UP",
+    "title": "사고 전환 실험",
+    "subtitle": "",
+    "period": "2026. 8.31-9.14",
+    "enabled": true
+  },
+  {
+    "id": "bootcamp",
+    "label": "BOOT CAMP",
+    "title": "BOOT CAMP",
+    "subtitle": "",
+    "period": "",
+    "enabled": false
+  }
+]

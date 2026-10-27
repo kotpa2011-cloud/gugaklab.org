@@ -24,5 +24,5 @@ export const siteConfig = {
 /** Header / Footer 공통 메뉴 */
 export const mainNav = [
   { href: "/about", label: "OVERVIEW", disabled: false },
-  { href: "/archive", label: "ARCHIVE", disabled: true },
+  { href: "/archive", label: "ARCHIVE", disabled: false },
 ] as const;

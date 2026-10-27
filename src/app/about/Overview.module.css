@@ -1,0 +1,272 @@
+/* Page 4: Overview uses 19px body text in both desktop frames. */
+.layout :global(.overview-content) {
+  gap: 100px;
+  padding: 80px 100px;
+}
+
+.layout :global(.overview-section-heading),
+.layout :global(.overview-pace .overview-section-heading) {
+  gap: 6px;
+}
+.layout :global(.overview-section-rule) {
+  height: 2px;
+}
+.layout :global(.overview-about) {
+  gap: 20px;
+}
+.layout :global(.overview-about-copy) {
+  max-width: 980px;
+  gap: 30.4px;
+}
+.layout :global(.overview-section-heading h1),
+.layout :global(.overview-section-heading h2),
+.layout :global(.overview-section-heading > p) {
+  font-weight: 800;
+}
+.layout :global(.overview-work-item),
+.layout :global(.overview-work-copy) {
+  gap: 16px;
+}
+.layout :global(.overview-work-copy h3 span:first-child) {
+  color: var(--yellow);
+}
+.layout :global(.overview-work-copy h3 span + span) {
+  font-weight: 500;
+  line-height: 1.5;
+}
+.layout :global(.overview-pace .overview-section-heading h2),
+.layout :global(.overview-pace .overview-section-heading > p) {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.layout :global(.overview-pace .overview-section-rule) {
+  height: 3px;
+}
+.workSentence {
+  display: block;
+}
+.layout :global(.overview-work-item:first-child) .workSentence:last-child {
+  max-width: 980px;
+}
+.concert {
+  gap: 20px;
+}
+.concertBody {
+  max-width: 980px;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.mobileTitle {
+  display: none;
+}
+.layout :global(.overview-nav-arrow .is-compact) {
+  display: none;
+}
+.expertGroups {
+  display: flex;
+  max-width: 980px;
+  flex-direction: column;
+  gap: 60px;
+}
+.expertGroup {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 40px;
+}
+.groupTitle {
+  padding-bottom: 17px;
+  border-bottom: 3px solid #bebfc0;
+  color: #a4a6a7;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.expertGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 429fr) minmax(0, 551fr);
+  row-gap: 40px;
+}
+.expert {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+}
+.expertHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.expertHeading h4 {
+  margin: 0;
+  min-width: 86px;
+  color: var(--yellow);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.expertHeading p {
+  color: #d376ff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.expertBio {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+@media (min-width: 701px) {
+  .expertGroup:nth-child(2) .expert:nth-child(-n+2) .expertHeading p {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1101px) {
+  .layout {
+    grid-template-columns: clamp(360px, calc(10.833333vw + 272px), 480px) minmax(0, 1fr);
+  }
+  .layout :global(.overview-section-nav) {
+    border-width: 2px;
+  }
+  .layout :global(.overview-section-nav a) {
+    box-sizing: border-box;
+    min-height: 51px;
+    padding: 15px 60px;
+    white-space: normal;
+  }
+  .layout :global(.overview-section-nav a:not(:last-child)) {
+    border-bottom-width: 2px;
+  }
+  .layout :global(.overview-nav-arrow) {
+    width: 23px;
+    height: 21px;
+  }
+  .layout :global(.overview-nav-arrow .is-default),
+  .layout :global(.overview-nav-arrow .is-active-hover) {
+    display: none;
+  }
+  .layout :global(.overview-nav-arrow .is-compact) {
+    display: block;
+  }
+  .layout :global(.overview-section-nav a[aria-current="location"]:hover .is-compact) {
+    opacity: 0.5;
+  }
+  .layout :global(.overview-work-item:not(:first-child) .overview-work-copy h3) {
+    gap: 0;
+  }
+  .layout :global(.overview-work-item:not(:first-child) .overview-work-copy h3 span:first-child) {
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1280px) {
+  .layout :global(.overview-content) {
+    padding-inline: 40px;
+  }
+  .expertGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .layout :global(.overview-content) {
+    gap: 60px;
+    padding: 30px 20px;
+  }
+  .layout :global(.overview-visual) {
+    height: auto;
+    min-height: 308px;
+    padding: 40px 0 20px;
+  }
+  .layout :global(.overview-word-band) {
+    display: none;
+  }
+  .mobileTitle {
+    display: block;
+    padding-inline: 22px;
+    margin-bottom: 24px;
+    color: var(--magenta);
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .layout :global(.overview-section-nav) {
+    position: static;
+  }
+  .layout :global(.overview-section-nav a) {
+    box-sizing: border-box;
+    min-height: 46px;
+    gap: 14px;
+    padding: 15px 20px;
+    font-size: 16px;
+    white-space: normal;
+  }
+  .expertGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .workSentence {
+    display: inline;
+  }
+  .layout :global(.overview-section-heading),
+  .layout :global(.overview-pace .overview-section-heading) {
+    gap: 5px;
+  }
+  .layout :global(.overview-about-copy) {
+    gap: 20.8px;
+  }
+  .layout :global(.overview-work-item),
+  .layout :global(.overview-work-copy) {
+    gap: 12px;
+  }
+  .layout :global(.overview-work-copy h3 span:first-child) {
+    font-weight: 800;
+    line-height: 1.5;
+  }
+  .layout :global(.overview-work-copy h3 span + span) {
+    font-weight: 700;
+  }
+  .layout :global(.overview-pace .overview-section-heading h2),
+  .layout :global(.overview-pace .overview-section-heading > p) {
+    font-size: 14px;
+  }
+  .layout :global(.overview-pace .overview-section-rule) {
+    height: 2px;
+  }
+  .concertBody {
+    font-size: 13px;
+  }
+  .expertGroups {
+    gap: 40px;
+  }
+  .expertGroup {
+    gap: 24px;
+  }
+  .groupTitle {
+    padding-bottom: 6px;
+    border-bottom: 1px solid white;
+    font-size: 14px;
+  }
+  .expert {
+    gap: 5px;
+  }
+  .expertHeading h4 {
+    margin: 0;
+    min-width: 45px;
+    font-size: 14px;
+  }
+  .expertHeading p, .expertBio {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}

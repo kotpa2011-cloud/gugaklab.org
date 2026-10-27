@@ -15,7 +15,9 @@ const rows = [
   ],
 ] as const;
 
-export default function OverviewWordBand() {
+export default function OverviewWordBand({
+  assetDirectory = "/images/gukak/overview-v2",
+}: { assetDirectory?: string }) {
   return (
     <div className="overview-word-band" aria-hidden="true" data-node-id="25:68363">
       {rows.map((row, rowIndex) => (
@@ -26,7 +28,7 @@ export default function OverviewWordBand() {
         >
           {row.map((item, itemIndex) => (
             <Image
-              src={item.src}
+              src={item.src.replace("/images/gukak/overview-v2", assetDirectory)}
               alt=""
               width={item.width}
               height={item.height}

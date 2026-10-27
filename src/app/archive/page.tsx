@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 
-import { getArchiveItemsGroupedByStage } from "@/lib/archive";
+import ArchiveEntryList from "@/components/archive/ArchiveEntryList";
+import ArchiveShell, { ArchiveProgramHeading } from "@/components/archive/ArchiveShell";
+import styles from "@/components/archive/Archive.module.css";
+import { getArchiveData } from "@/lib/archive";
 import { absoluteUrl, siteConfig } from "@/lib/site";
-import { ARCHIVE_STAGE_LABEL } from "@/types/archive";
 
 const title = "ARCHIVE";
-const description = "MEET UP, BOOTCAMP, SHOW UP으로 이어지는 국악 길라잡이의 기록입니다.";
+const description = "국악 길라잡이 MEET UP의 실험과 만남을 기록합니다.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: {
-    canonical: absoluteUrl("/archive"),
-  },
+  alternates: { canonical: absoluteUrl("/archive") },
   openGraph: {
     title: `${title} | ${siteConfig.name}`,
     description,
@@ -22,63 +22,26 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: `${title} | ${siteConfig.name}`,
-    description,
-    images: [siteConfig.ogImage.url],
-  },
+  twitter: { card: "summary_large_image", title, description, images: [siteConfig.ogImage.url] },
 };
 
-const stageDescriptions = {
-  MEET_UP: "익숙한 창작의 틀을 벗어나 관객의 시선으로 다시 봅니다.",
-  BOOTCAMP: "공연의 핵심 상품성을 정의하고 실행 가능한 무대로 만듭니다.",
-  SHOW_UP: "완성된 공연을 관객 앞에 선보이고 자생력을 검증합니다.",
-} as const;
-
-export default function ArchivePage() {
-  const groups = getArchiveItemsGroupedByStage();
-
+export default async function ArchivePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ program?: string | string[] }>;
+}) {
+  const { programs, entries } = getArchiveData();
+  const query = await searchParams;
+  const program = programs.find((item) => item.enabled && item.id === query.program)
+    ?? programs.find((item) => item.enabled)!;
+  const programEntries = entries.filter((entry) => entry.program === program.id);
   return (
-    <article className="archive-page">
-      <header className="archive-intro">
-        <p>RECORDS OF THE LAB</p>
-        <h1>ARCHIVE</h1>
-        <span>관점을 바꾸고, 상품으로 짓고, 관객 앞에 선 기록</span>
+    <ArchiveShell program={program} programs={programs} entries={programEntries}>
+      <header className={styles.indexHeading}>
+        <span className={styles.rule} aria-hidden="true" />
+        <ArchiveProgramHeading program={program} />
       </header>
-
-      <div className="archive-groups">
-        {groups.map(({ stage, items }, index) => (
-          <section
-            key={stage}
-            id={stage.toLowerCase().replace("_", "-")}
-            className="archive-group"
-          >
-            <header>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h2>{ARCHIVE_STAGE_LABEL[stage]}</h2>
-              <p>{stageDescriptions[stage]}</p>
-            </header>
-
-            {items.length === 0 ? (
-              <p className="archive-empty">COMING SOON</p>
-            ) : (
-              <ul className="archive-list">
-                {items.map((item) => (
-                  <li key={item.id}>
-                    <article>
-                      <time dateTime={item.date}>{item.date.replaceAll("-", ".")}</time>
-                      <h3>{item.title}</h3>
-                      <p>{item.summary}</p>
-                      <span aria-hidden="true">→</span>
-                    </article>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-        ))}
-      </div>
-    </article>
+      {programEntries.length ? <ArchiveEntryList entries={programEntries} /> : <p className={styles.empty}>준비 중입니다.</p>}
+    </ArchiveShell>
   );
 }
