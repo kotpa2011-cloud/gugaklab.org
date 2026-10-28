@@ -122,12 +122,6 @@
   word-break: keep-all;
 }
 
-@media (min-width: 701px) {
-  .expertGroup:nth-child(2) .expert:nth-child(-n+2) .expertHeading p {
-    font-size: 28px;
-  }
-}
-
 @media (min-width: 1101px) {
   .layout :global(.overview-pace .overview-section-heading > p),
   .expertHeading h4 {
