@@ -129,6 +129,16 @@
 }
 
 @media (min-width: 1101px) {
+  .layout :global(.overview-pace .overview-section-heading > p),
+  .expertHeading h4 {
+    font-size: var(--overview-subtitle-size);
+  }
+  .expertHeading {
+    gap: 10px;
+  }
+  .expertHeading h4 {
+    min-width: 0;
+  }
   .layout {
     grid-template-columns: clamp(360px, calc(10.833333vw + 272px), 480px) minmax(0, 1fr);
   }
