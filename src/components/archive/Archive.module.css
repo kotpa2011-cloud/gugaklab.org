@@ -451,6 +451,8 @@
 .programPeriod { font-size: 28px; }
 .sectionHeading { display: flex; flex-direction: column; gap: 8px; }
 
+.index .badge[data-repeated] { visibility: hidden; }
+
 @media (min-width: 1101px) {
   .detail {
     grid-template-columns: clamp(360px, calc(10.833333vw + 272px), 480px) minmax(0, 1fr);
@@ -463,7 +465,6 @@
   .sectionCopy { max-width: var(--archive-copy-width); flex: 0 1 var(--archive-copy-width); font-size: clamp(15px, calc(0.625vw + 6px), 18px); }
   .figure { max-width: var(--archive-image-width); }
   .textOnly .sectionCopy { flex: 1; max-width: none; }
-  .index .badge[data-repeated] { visibility: hidden; }
   .index .entry { min-height: 87px; }
 }
 
